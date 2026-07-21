@@ -35,7 +35,7 @@ A collection of hands-on ESP32 projects built with the Arduino framework, progre
   https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
   ```
 - Required libraries (install via *Sketch → Include Library → Manage Libraries*):
-  - `Adafruit SSD1306`
+  - `Adafruit SH1106`
   - `Adafruit GFX Library`
   - `ESP32 BLE Arduino` (included in the ESP32 core)
   - [`ESP32-BLE-Keyboard`](https://github.com/T-vK/ESP32-BLE-Keyboard) (for `ble_keyboard_*` projects)
