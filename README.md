@@ -24,7 +24,7 @@ A collection of hands-on ESP32 projects built with the Arduino framework, progre
 
 **Hardware**
 - ESP32 development board (e.g. ESP32-DevKitC, ESP32-WROOM-32)
-- SSD1306 0.96" I2C OLED display (for `*_oled` projects)
+- SH1106 0.96" I2C OLED display (for `*_oled` projects)
 - Push button + 10kΩ pull-down resistor (for `btn_*` projects)
 - Jumper wires, breadboard
 
