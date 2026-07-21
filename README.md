@@ -10,7 +10,7 @@ A collection of hands-on ESP32 projects built with the Arduino framework, progre
 |--------|-------------|
 | [`ledblink`](./ledblink) | Blink the onboard LED — the classic "Hello World" of embedded systems |
 | [`btn_led`](./btn_led) | Control an external LED with a push button (digital input/output) |
-| [`btn_oled`](./btn_oled) | Display button state on a 0.96" SSD1306 OLED screen |
+| [`btn_oled`](./btn_oled) | Display button state on a 0.96" SH1106 OLED screen |
 | [`custom_oled`](./custom_oled) | Render custom text and graphics on the OLED display |
 | [`btn_ble`](./btn_ble) | Send button press events over BLE to a connected device |
 | [`btn_ble_oled`](./btn_ble_oled) | Combine BLE transmission with real-time OLED status display |
