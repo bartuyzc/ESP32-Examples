@@ -1,0 +1,41 @@
+==================================================
+                ESP32 REFERENCE NOTES
+==================================================
+
+
+[ Useful Links ]
+--------------------------------------------------
+
+OLED UI Designer
+https://lopaka.app/
+
+
+[ Bluetooth Commands ]
+--------------------------------------------------
+
+Connect to an ESP32 via Bluetooth:
+
+    bluetoothctl
+
+    pair <MAC_ADDRESS>
+    connect <MAC_ADDRESS>
+    trust <MAC_ADDRESS>
+
+
+[ Built-in Pin Assignments ]
+--------------------------------------------------
+
+LED            GPIO 2
+BOOT Button    GPIO 0
+
+
+[ SH1106 OLED Wiring ]
+--------------------------------------------------
+
+VCC            3.3V
+GND            GND
+SDA            GPIO 21
+SCL            GPIO 22
+
+
+==================================================
