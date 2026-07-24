@@ -1,0 +1,78 @@
+#include "screens.h"
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET -1
+
+Adafruit_SH1106G display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+// [BEGIN lopaka generated]
+static const unsigned char PROGMEM image_Bluetooth_Idle_bits[] = {0x0c,0x00,0x0c,0x00,0xcf,0x00,0xcf,0x00,0x3c,0xc0,0x3c,0xc0,0x0f,0x00,0x0f,0x00,0x0f,0x00,0x0f,0x00,0x3c,0xc0,0x3c,0xc0,0xcf,0x00,0xcf,0x00,0x0c,0x00,0x0c,0x00};
+
+static const unsigned char PROGMEM image_ButtonLeft_bits[] = {0x10,0x30,0x70,0xf0,0x70,0x30,0x10};
+
+static const unsigned char PROGMEM image_ButtonRight_bits[] = {0x80,0xc0,0xe0,0xf0,0xe0,0xc0,0x80};
+
+static const unsigned char PROGMEM image_clock_quarters_bits[] = {0x07,0xc0,0x19,0x30,0x21,0x08,0x40,0x04,0x41,0x04,0x81,0x02,0x81,0x02,0xe1,0x0e,0x80,0x82,0x80,0x42,0x40,0x04,0x40,0x04,0x21,0x08,0x19,0x30,0x07,0xc0,0x00,0x00};
+
+static const unsigned char PROGMEM image_display_brightness_bits[] = {0x01,0x00,0x21,0x08,0x10,0x10,0x03,0x80,0x8c,0x62,0x48,0x24,0x10,0x10,0x10,0x10,0x10,0x10,0x48,0x24,0x8c,0x62,0x03,0x80,0x10,0x10,0x21,0x08,0x01,0x00,0x00,0x00};
+
+static const unsigned char PROGMEM image_location_map_bits[] = {0x03,0x80,0x04,0x40,0x09,0x20,0x12,0x90,0x12,0x90,0x11,0x10,0x08,0x20,0x04,0x40,0x04,0x40,0x1a,0xb0,0x21,0x08,0x21,0x08,0x40,0x04,0x40,0x04,0x9c,0x72,0xe3,0x8e};
+
+static const unsigned char PROGMEM image_SmallArrowDown_bits[] = {0xfe,0x7c,0x38,0x10};
+
+static const unsigned char PROGMEM image_SmallArrowUp_bits[] = {0x10,0x38,0x7c,0xfe};
+
+void initDisplay()
+{
+    display.begin(0x3C, true);
+    display.clearDisplay();
+    display.display();
+}
+
+void drawScreen_1(bool bleState, String buttonState) {
+    display.clearDisplay();
+    // SmallArrowUp
+    display.drawBitmap(10, 37, image_SmallArrowUp_bits, 7, 4, 1);
+    // SmallArrowDown
+    display.drawBitmap(10, 54, image_SmallArrowDown_bits, 7, 4, 1);
+    // ButtonRight
+    display.drawBitmap(20, 44, image_ButtonRight_bits, 4, 7, 1);
+    // ButtonLeft
+    display.drawBitmap(3, 44, image_ButtonLeft_bits, 4, 7, 1);
+    // string 5
+    display.setTextColor(1);
+    display.setTextWrap(false);
+
+    // Button state
+    display.setCursor(32, 49);
+    display.print(buttonState);
+
+    // Bluetooth_Idle
+    if (bleState)
+    {
+        display.drawBitmap(41, 4,
+                        image_Bluetooth_Idle_bits,
+                        10, 16, 1);
+
+        display.setCursor(32, 37);
+        display.print("BLE Connected");
+    }
+    else
+    {
+        display.setCursor(32, 37);
+        display.print("BLE Disconnected");
+    }
+    // clock_quarters
+    display.drawBitmap(9, 4, image_clock_quarters_bits, 15, 16, 1);
+    // location_map
+    display.drawBitmap(69, 4, image_location_map_bits, 15, 16, 1);
+    // display_brightness
+    display.drawBitmap(99, 4, image_display_brightness_bits, 15, 16, 1);
+    // string 10
+    display.setCursor(35, 34);
+    // display.print(ble_state);
+    display.display();
+}
+// [END lopaka generated]
+
